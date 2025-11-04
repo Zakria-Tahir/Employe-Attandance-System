@@ -1,0 +1,192 @@
+/* EmployeeDashboard.css */
+.emp-dashboard {
+  max-width: 980px;
+  margin: 24px auto;
+  padding: 18px;
+  font-family: Inter, system-ui, Arial, sans-serif;
+  color: #0f172a;
+}
+
+
+
+.emp-meta { color: #6b7280; font-size: 0.95rem; }
+
+.logout {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.emp-timer-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(2,6,23,0.06);
+  margin-bottom: 18px;
+}
+
+.timer-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+  color: black;
+}
+
+.timer-block {
+  min-width: 120px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #f8fafc;
+  text-align: center;
+}
+
+.timer-block .label { font-size: 0.85rem; color: #6b7280; margin-bottom: 6px; }
+.timer-block .value { font-weight: 700; font-size: 1.05rem; }
+
+.status.present { color: #065f46; font-weight: 700; }
+.status.absent { color: #b91c1c; font-weight: 700; }
+
+.controls-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.checkin-btn {
+  background: linear-gradient(90deg, #10b981, #059669);
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.checkout-btn {
+  background: linear-gradient(90deg,#2563eb,#1d4ed8);
+  border: none;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  margin-top: -25px;
+  
+}
+
+.reset-btn {
+  background: #e5e7eb;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.checked-message { color: #374151; font-weight: 600; }
+
+.records-section {
+  background: #fff;
+  padding: 14px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(2,6,23,0.06);
+}
+
+.records-table-wrap {
+  overflow-x: auto;
+}
+
+.records-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+.records-table th, .records-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #eef2f7;
+  text-align: left;
+}
+
+.records-table th {
+  background: #f8fafc;
+  font-weight: 700;
+  color: #374151;
+}
+.baqi-time{
+    margin-left: 25px;
+}
+
+/* Password modal styling */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 320px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-box input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.change-pwd-btn {
+  background: #0077cc;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  margin-right: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background: #ccc;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.emp-timer-card{
+  color: white;
+}
+h3,p{
+  color: black;
+}
+
+
+
+
+@media (max-width: 700px) {
+  .timer-block { min-width: 100px; }
+  .emp-dashboard { padding: 12px; }
+}

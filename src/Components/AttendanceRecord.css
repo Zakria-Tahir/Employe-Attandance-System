@@ -1,0 +1,106 @@
+
+
+
+
+.attendance-main {
+  background: #f9fafb;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  font-family: "Inter", sans-serif;
+}
+
+.attendance-container {
+  padding: 20px 40px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 80px auto 0px auto;
+  
+}
+
+.attendance-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.attendance-header h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.attendance-search {
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 250px;
+  font-size: 14px;
+}
+
+.employee-record-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  margin-bottom: 25px;
+  padding: 20px;
+  
+}
+
+.employee-header {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+}
+
+.emp-info h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+}
+
+.emp-role {
+  font-size: 14px;
+  color: #666;
+}
+
+.emp-email {
+  font-size: 13px;
+  color: #999;
+}
+
+.attendance-table-wrapper {
+  overflow-x: auto !important;
+}
+
+.attendance-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 900px;
+}
+
+.attendance-table th,
+.attendance-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.attendance-table th {
+  background: #f3f4f6;
+  font-weight: 600;
+}
+
+.attendance-table tr:hover {
+  background: #fafafa;
+}
+
+.no-records {
+  text-align: center;
+  color: #777;
+  margin-top: 40px;
+}
+
