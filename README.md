@@ -2,6 +2,18 @@
 <img src="C:\Users\Zakria Tahir\vscode\employe-attandance-system\src\assets\employe.PNG"/>
 <img src="C:\Users\Zakria Tahir\vscode\employe-attandance-system\src\assets\login.PNG"/>
 
+## 🖥️ Screenshots
+
+### 🔐 Login Page
+![Login Page](https://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/login.png?raw=true)
+
+### 🏢 Admin Dashboard
+![Admin Dashboard](https://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/admin.png?raw=true)
+
+### ⏱️ Attendance Record
+![Employe Record](https://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/employe.png?raw=true)
+
+
 # 🕒 Employee Attendance System
 
 A complete React-based Employee Attendance Management System that allows tracking, editing, and managing employee check-in/check-out times efficiently.  
