@@ -61,7 +61,7 @@ Password: admin123
 
 1. **Clone this repository**
    ```bash
-   git clone https://github.com/Zakria-Tahir/Employe-Attandance-System.git
+   git clone https://github.com/Zakria-Tahir/E-Commarce.git
 
 
 ## 📂 Project Folder Structure
