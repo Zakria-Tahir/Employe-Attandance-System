@@ -4,13 +4,13 @@
 
 ## 🖥️ Screenshots
 
-### 🔐 Login Page
+### 🏢 Admin Dashboard
 ![Login Page](https://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/admin.PNG?raw=true)
 
-### 🏢 Admin Dashboard
+### ⏱️ Employe Record
 ![Admin Dashboard](https://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/employe.PNG?raw=true)
 
-### ⏱️ Employe Record
+### 🔐 Login Page
 ![Employe Record](https://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/login.PNG?raw=true)
 
 
