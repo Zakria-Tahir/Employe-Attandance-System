@@ -1,7 +1,3 @@
-<img src="C:\Users\Zakria Tahir\vscode\employe-attandance-system\src\assets\admin.PNG"/>
-<img src="C:\Users\Zakria Tahir\vscode\employe-attandance-system\src\assets\employe.PNG"/>
-<img src="C:\Users\Zakria Tahir\vscode\employe-attandance-system\src\assets\login.PNG"/>
-
 ## 🖥️ Screenshots
 
 ### 🏢 Admin Dashboard
