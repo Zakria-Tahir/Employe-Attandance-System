@@ -54,52 +54,52 @@ Password: admin123
 
 ## 📂 Project Folder Structure
 
-Employe-Attandance-System/
-│
+Employe-Attandance-System/</br>
+│</br>
 ├── src/</br>
-│   ├── Components/
-│   │   ├── admindashing.css
-│   │   ├── AttendanceRecord.css
-│   │   ├── Dashboard.css
-│   │   ├── EmployeeDashboard.css
-│   │   ├── EmployeeList.css
-│   │   ├── Header.css
-│   │   ├── LoginForm.css
-│   │   ├── Timecard.css
-│   │   ├── Topbar.css
-│   │
-│   ├── features/
-│   │   ├── attendanceSlice.jsx
-│   │   ├── authSlice.jsx
-│   │   └── employeeSlice.jsx
-│   │
-│   ├── hooks/
-│   │   └── useTimer.jsx
-│   │
-│   ├── Redux/
-│   │   └── store.jsx
-│   │
-│   ├── AddEmployeeModal.jsx
-│   ├── AdminDashboard.jsx
-│   ├── App.jsx
-│   ├── AttendanceRecord.jsx
-│   ├── AttendanceTable.jsx
-│   ├── EditAttendanceModal.jsx
-│   ├── EmployeeDashboard.jsx
-│   ├── EmployeeList.jsx
-│   ├── Header.jsx
-│   ├── index.css
-│   ├── LoginForm.jsx
-│   ├── main.jsx
-│   ├── NoticeModal.jsx
-│   ├── PasswordModal.jsx
-│   ├── ProtectedRoute.jsx
-│   ├── TimerCard.jsx
-│   └── Topbar.jsx
-│
-├── eslint.config.js
-├── index.html
-├── package-lock.json
-├── package.json
-├── README.md
+│   ├── Components/</br>
+│   │   ├── admindashing.css</br>
+│   │   ├── AttendanceRecord.css</br>
+│   │   ├── Dashboard.css</br>
+│   │   ├── EmployeeDashboard.css</br>
+│   │   ├── EmployeeList.css</br>
+│   │   ├── Header.css</br>
+│   │   ├── LoginForm.css</br>
+│   │   ├── Timecard.css</br>
+│   │   ├── Topbar.css</br>
+│   │</br>
+│   ├── features/</br>
+│   │   ├── attendanceSlice.jsx</br>
+│   │   ├── authSlice.jsx</br>
+│   │   └── employeeSlice.jsx</br>
+│   │</br>
+│   ├── hooks/</br>
+│   │   └── useTimer.jsx</br>
+│   │</br>
+│   ├── Redux/</br>
+│   │   └── store.jsx</br>
+│   │</br>
+│   ├── AddEmployeeModal.jsx</br>
+│   ├── AdminDashboard.jsx</br>
+│   ├── App.jsx</br>
+│   ├── AttendanceRecord.jsx</br>
+│   ├── AttendanceTable.jsx</br>
+│   ├── EditAttendanceModal.jsx</br>
+│   ├── EmployeeDashboard.jsx</br>
+│   ├── EmployeeList.jsx</br>
+│   ├── Header.jsx</br>
+│   ├── index.css</br>
+│   ├── LoginForm.jsx</br>
+│   ├── main.jsx</br>
+│   ├── NoticeModal.jsx</br>
+│   ├── PasswordModal.jsx</br>
+│   ├── ProtectedRoute.jsx</br>
+│   ├── TimerCard.jsx</br>
+│   └── Topbar.jsx</br>
+│</br>
+├── eslint.config.js</br>
+├── index.html</br>
+├── package-lock.json</br>
+├── package.json</br>
+├── README.md</br>
 └── vite.config.js
