@@ -30,11 +30,22 @@ The system supports real-time attendance calculation, break-time handling, and w
 | Build Tool | Vite / Create React App |
 | Icons & UI | React Icons / Custom Components |
 
+## 🛠️ Technologies why Used
+
+- **React.js (Vite)** – Frontend framework  
+- **Redux Toolkit** – State management  
+- **React Router** – Page routing  
+- **CSS3** – Custom responsive design  
+- **LocalStorage** – Persistent data saving 
+
 ---
 
 ## ⚙️ Installation Guide
 
 Follow these steps to run the project locally:
+
+Email: admin@example.com  
+Password: admin123
 
 1. **Clone this repository**
    ```bash
@@ -43,46 +54,48 @@ Follow these steps to run the project locally:
 
 ## 📂 Project Folder Structure
 
-├── src/
-│ ├── Components/
-│ │ ├── admindashing.css
-│ │ ├── AttendanceRecord.css
-│ │ ├── Dashboard.css
-│ │ ├── EmployeeDashboard.css
-│ │ ├── EmployeeList.css
-│ │ ├── Header.css
-│ │ ├── LoginForm.css
-│ │ ├── Timecard.css
-│ │ ├── Topbar.css
-│ │
-│ ├── features/
-│ │ ├── attendanceSlice.jsx
-│ │ ├── authSlice.jsx
-│ │ └── employeeSlice.jsx
-│ │
-│ ├── hooks/
-│ │ └── useTimer.jsx
-│ │
-│ ├── Redux/
-│ │ └── store.jsx
-│ │
-│ ├── AddEmployeeModal.jsx
-│ ├── AdminDashboard.jsx
-│ ├── App.jsx
-│ ├── AttendanceRecord.jsx
-│ ├── AttendanceTable.jsx
-│ ├── EditAttendanceModal.jsx
-│ ├── EmployeeDashboard.jsx
-│ ├── EmployeeList.jsx
-│ ├── Header.jsx
-│ ├── index.css
-│ ├── LoginForm.jsx
-│ ├── main.jsx
-│ ├── NoticeModal.jsx
-│ ├── PasswordModal.jsx
-│ ├── ProtectedRoute.jsx
-│ ├── TimerCard.jsx
-│ └── Topbar.jsx
+Employe-Attandance-System/
+│
+├── src/</br>
+│   ├── Components/
+│   │   ├── admindashing.css
+│   │   ├── AttendanceRecord.css
+│   │   ├── Dashboard.css
+│   │   ├── EmployeeDashboard.css
+│   │   ├── EmployeeList.css
+│   │   ├── Header.css
+│   │   ├── LoginForm.css
+│   │   ├── Timecard.css
+│   │   ├── Topbar.css
+│   │
+│   ├── features/
+│   │   ├── attendanceSlice.jsx
+│   │   ├── authSlice.jsx
+│   │   └── employeeSlice.jsx
+│   │
+│   ├── hooks/
+│   │   └── useTimer.jsx
+│   │
+│   ├── Redux/
+│   │   └── store.jsx
+│   │
+│   ├── AddEmployeeModal.jsx
+│   ├── AdminDashboard.jsx
+│   ├── App.jsx
+│   ├── AttendanceRecord.jsx
+│   ├── AttendanceTable.jsx
+│   ├── EditAttendanceModal.jsx
+│   ├── EmployeeDashboard.jsx
+│   ├── EmployeeList.jsx
+│   ├── Header.jsx
+│   ├── index.css
+│   ├── LoginForm.jsx
+│   ├── main.jsx
+│   ├── NoticeModal.jsx
+│   ├── PasswordModal.jsx
+│   ├── ProtectedRoute.jsx
+│   ├── TimerCard.jsx
+│   └── Topbar.jsx
 │
 ├── eslint.config.js
 ├── index.html
