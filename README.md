@@ -115,3 +115,5 @@ Employe-Attandance-System/</br>
 ├── package.json</br>
 ├── README.md</br>
 └── vite.config.js
+
+## Developed by: Zakria Tahir
