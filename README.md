@@ -41,3 +41,52 @@ Follow these steps to run the project locally:
    git clone https://github.com/Zakria-Tahir/Employe-Attandance-System.git
 
 
+## 📂 Project Folder Structure
+
+├── src/
+│ ├── Components/
+│ │ ├── admindashing.css
+│ │ ├── AttendanceRecord.css
+│ │ ├── Dashboard.css
+│ │ ├── EmployeeDashboard.css
+│ │ ├── EmployeeList.css
+│ │ ├── Header.css
+│ │ ├── LoginForm.css
+│ │ ├── Timecard.css
+│ │ ├── Topbar.css
+│ │
+│ ├── features/
+│ │ ├── attendanceSlice.jsx
+│ │ ├── authSlice.jsx
+│ │ └── employeeSlice.jsx
+│ │
+│ ├── hooks/
+│ │ └── useTimer.jsx
+│ │
+│ ├── Redux/
+│ │ └── store.jsx
+│ │
+│ ├── AddEmployeeModal.jsx
+│ ├── AdminDashboard.jsx
+│ ├── App.jsx
+│ ├── AttendanceRecord.jsx
+│ ├── AttendanceTable.jsx
+│ ├── EditAttendanceModal.jsx
+│ ├── EmployeeDashboard.jsx
+│ ├── EmployeeList.jsx
+│ ├── Header.jsx
+│ ├── index.css
+│ ├── LoginForm.jsx
+│ ├── main.jsx
+│ ├── NoticeModal.jsx
+│ ├── PasswordModal.jsx
+│ ├── ProtectedRoute.jsx
+│ ├── TimerCard.jsx
+│ └── Topbar.jsx
+│
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+└── vite.config.js
