@@ -1,18 +1,43 @@
-# React + Vite
+# 🕒 Employee Attendance System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A complete React-based Employee Attendance Management System that allows tracking, editing, and managing employee check-in/check-out times efficiently.  
+The system supports real-time attendance calculation, break-time handling, and working hour validation.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- ✅ Employee login and attendance tracking  
+- ⏰ Record **check-in** and **check-out** times  
+- 🧮 Auto-calculates total worked hours excluding breaks  
+- 📅 Date-wise attendance history stored in `localStorage`  
+- ✏️ Edit attendance records with an easy popup modal  
+- 📊 Admin dashboard for viewing all employee records  
+- 💾 Persistent data using **Redux Toolkit** + Local Storage  
+- 🧠 Smart logic for “Completed / Not Completed” working hours  
+- 🎨 Responsive and clean UI with reusable components  
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## 🛠️ Technologies Used
 
-## Expanding the ESLint configuration
+| Category | Technology |
+|-----------|-------------|
+| Frontend | React.js, JSX, CSS3 |
+| State Management | Redux Toolkit |
+| Storage | LocalStorage |
+| Styling | Custom CSS, Responsive Layout |
+| Build Tool | Vite / Create React App |
+| Icons & UI | React Icons / Custom Components |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ⚙️ Installation Guide
+
+Follow these steps to run the project locally:
+
+1. **Clone this repository**
+   ```bash
+   git clone https://github.com/Zakria-Tahir/Employe-Attandance-System.git
+
+
