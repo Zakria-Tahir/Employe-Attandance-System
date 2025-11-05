@@ -1,0 +1,39 @@
+.profile-modal {
+  max-width: 500px;
+  padding: 20px;
+}
+
+.profile-form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #333;
+}
+
+.profile-form input {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.profile-form input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.profile-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+
+}
+
+.profile-btn:hover {
+  background-color: #0056b3;
+}

@@ -1,6 +1,7 @@
 /* EmployeeDashboard.css */
 .emp-dashboard {
-  max-width: 980px;
+  width: 100%;
+  max-width: 1300px;
   margin: 24px auto;
   padding: 18px;
   font-family: Inter, system-ui, Arial, sans-serif;

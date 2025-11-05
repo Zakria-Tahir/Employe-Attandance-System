@@ -18,6 +18,7 @@ function fmtDate(iso) {
 export default function AttendanceRecord() {
   const attendanceObj = JSON.parse(localStorage.getItem("attendance") || "{}");
   const employeeList = JSON.parse(localStorage.getItem("employees") || "[]");
+  const profiles = JSON.parse(localStorage.getItem("profiles") || "[]");
   const [search, setSearch] = useState("");
 
   const groupedData = useMemo(() => {
@@ -29,12 +30,20 @@ export default function AttendanceRecord() {
         : [];
       if (!records.length) return;
 
-      // ✅ Normalize both string and number IDs
+      // ✅ Find employee info
       const employee =
         employeeList.find(
           (emp) =>
             String(emp.id) === String(userId) ||
             String(emp.employeeId) === String(userId)
+        ) || {};
+
+      // ✅ Find profile info for this employee
+      const profile =
+        profiles.find(
+          (p) =>
+            String(p.employeeId) === String(userId) ||
+            String(p.id) === String(userId)
         ) || {};
 
       const userInfo = {
@@ -52,6 +61,7 @@ export default function AttendanceRecord() {
           employee.employeeDesignation ||
           records[0]?.designation ||
           "Employee",
+        phone: profile.number || "-", // ✅ phone number from profiles
       };
 
       groups[userId] = {
@@ -61,7 +71,7 @@ export default function AttendanceRecord() {
     });
 
     return groups;
-  }, [attendanceObj, employeeList]);
+  }, [attendanceObj, employeeList, profiles]);
 
   const filteredEmployees = Object.entries(groupedData).filter(([_, emp]) =>
     emp.name.toLowerCase().includes(search.toLowerCase())
@@ -97,6 +107,7 @@ export default function AttendanceRecord() {
                   <h3>{emp.name}</h3>
                   <p className="emp-role">{emp.designation}</p>
                   <p className="emp-email">{emp.email}</p>
+                  <p className="emp-phone">📞 {emp.phone}</p> {/* ✅ Added phone */}
                 </div>
               </div>
 

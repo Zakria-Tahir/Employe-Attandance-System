@@ -55,13 +55,13 @@ export default function AddEmployeeModal({ close }) {
             >
               {dialog.text}
             </h3>
-            <button
+           {/*} <button
               onClick={() => setDialog(null)}
               className="primary-btn"
               style={{ marginTop: "10px" }}
             >
               OK
-            </button>
+            </button>*/}
           </div>
         </div>
       )}
