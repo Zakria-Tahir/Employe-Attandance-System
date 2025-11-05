@@ -56,7 +56,7 @@ export default function ProfileModal({ close }) {
 
   return (
     <div className="modal-overlay">
-      <div className="modal-box profile-modal">
+      <div className=" profile-modal">
         <h3>👤 Employee Profile</h3>
 
         <form onSubmit={handleSave} className="profile-form">
