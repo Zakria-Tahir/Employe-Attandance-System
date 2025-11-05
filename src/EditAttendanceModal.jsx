@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateAttendance } from "./features/employeeSlice.jsx";
 import "./Components/Dashboard.css";
+import "./Components/admindashing.css";
 
 export default function EditAttendanceModal({ close }) {
   const employees = useSelector((s) => s.employees.list || []);
@@ -127,7 +128,7 @@ export default function EditAttendanceModal({ close }) {
           />
 
           <div className="modal-actions">
-            <button type="submit" className="primary-btn">
+            <button type="submit" className="primary-btn3">
               Save
             </button>
             <button type="button" className="cancel-btn" onClick={close}>

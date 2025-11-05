@@ -108,7 +108,8 @@
   flex-wrap: wrap;
 }
 
-.primary-btn,
+
+.primary-btn,.primary-btn3,
 .edit-btn {
   border: none;
   outline: none;
@@ -124,8 +125,17 @@
   color: white;
 }
 
+.primary-btn3{
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+}
+
 .primary-btn:hover {
   background: linear-gradient(135deg, #16a34a, #15803d);
+  transform: translateY(-2px);
+}
+.primary-btn3:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
   transform: translateY(-2px);
 }
 
