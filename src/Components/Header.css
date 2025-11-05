@@ -49,6 +49,7 @@
 .change-pwd-btn {
   background-color: #007bff;
   color: white;
+  margin-right: 0px !important;
 }
 
 .change-pwd-btn:hover {
