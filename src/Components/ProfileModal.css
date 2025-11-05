@@ -57,3 +57,20 @@
 .profile-btn:hover {
   background-color: #0056b3;
 }
+
+.primary-btn5{
+  background: #007bff;
+  color: white;
+    border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.6rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.primary-btn5:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}

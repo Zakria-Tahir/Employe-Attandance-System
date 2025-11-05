@@ -41,7 +41,7 @@ export default function PasswordModal({ user, onClose }) {
           onChange={(e) => setConfirmPwd(e.target.value)}
         />
         <div className="modal-actions">
-          <button onClick={handleSave} className="primary-btn">
+          <button onClick={handleSave} className="primary-btn5">
             Save
           </button>
           <button onClick={onClose} className="cancel-btn">
