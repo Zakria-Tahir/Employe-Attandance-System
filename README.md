@@ -10,7 +10,7 @@
 ![Employe Records](https://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/employe.PNG?raw=true)
 
 ### ⏱️ Attandance_Record
-![Attandance Page](https://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/attendance-records.PNG?raw=true)
+![Attandance Page](hhttps://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/attendance-records.png?raw=true)
 
 
 
