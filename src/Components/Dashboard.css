@@ -145,7 +145,7 @@
 }
 
 .popup-box {
-  background: #fff;
+  background: #3b80ff;
   padding: 15px 25px;
   border-radius: 12px;
   font-weight: 500;
@@ -153,8 +153,8 @@
 }
 
 .success-popup .popup-box {
-  border-left: 6px solid #28a745;
-  color: #28a745;
+  border-left: 6px solid #0425dd;
+  color: white;
 }
 
 .error-popup .popup-box {

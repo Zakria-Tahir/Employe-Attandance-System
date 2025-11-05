@@ -74,3 +74,26 @@
   background: #0056b3;
   transform: translateY(-2px);
 }
+
+.success-popup {
+  width:400px;
+  position: absolute;
+  top: 315px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0056b3;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  animation: fadeInOut 2s ease-in-out forwards;
+  z-index: 999;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, -20px); }
+  20% { opacity: 1; transform: translate(-50%, 0); }
+  80% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, -20px); }
+}

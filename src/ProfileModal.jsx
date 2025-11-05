@@ -5,7 +5,9 @@ export default function ProfileModal({ close }) {
   const currentUser = JSON.parse(localStorage.getItem("auth_user")); // logged-in user
   const employees = JSON.parse(localStorage.getItem("employees")) || [];
 
-  const employee = employees.find((emp) => String(emp.id) === String(currentUser?.id));
+  const employee = employees.find(
+    (emp) => String(emp.id) === String(currentUser?.id)
+  );
 
   // Load all profiles
   const allProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
@@ -27,6 +29,8 @@ export default function ProfileModal({ close }) {
     }
   );
 
+  const [showMessage, setShowMessage] = useState(false); // ✅ for popup message
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProfile((prev) => ({ ...prev, [name]: value }));
@@ -41,43 +45,38 @@ export default function ProfileModal({ close }) {
     );
 
     if (index !== -1) {
-      // update existing
-      updatedProfiles[index] = profile;
+      updatedProfiles[index] = profile; // update existing
     } else {
-      // add new
-      updatedProfiles.push(profile);
+      updatedProfiles.push(profile); // add new
     }
 
     localStorage.setItem("profiles", JSON.stringify(updatedProfiles));
 
-    alert("✅ Profile saved successfully!");
-    close();
+    // ✅ Show popup message
+    setShowMessage(true);
+    setTimeout(() => {
+      setShowMessage(false);
+      close(); // auto close after showing success
+    }, 2000);
   };
 
   return (
     <div className="modal-overlay">
-      <div className=" profile-modal">
+      <div className="profile-modal">
+        {/* ✅ Success popup message */}
+        {showMessage && <div className="success-popup"> Profile saved successfully!</div>}
+
         <h3>👤 Employee Profile</h3>
 
         <form onSubmit={handleSave} className="profile-form">
           <label>
             Name:
-            <input
-              type="text"
-              name="name"
-              value={profile.name}
-              readOnly
-            />
+            <input type="text" name="name" value={profile.name} readOnly />
           </label>
 
           <label>
             Email:
-            <input
-              type="email"
-              name="email"
-              value={profile.email}
-              readOnly
-            />
+            <input type="email" name="email" value={profile.email} readOnly />
           </label>
 
           <label>
@@ -124,7 +123,6 @@ export default function ProfileModal({ close }) {
             />
           </label>
 
-          {/* Hidden field: employee ID */}
           <input type="hidden" name="employeeId" value={profile.employeeId} />
 
           <div className="modal-actions">

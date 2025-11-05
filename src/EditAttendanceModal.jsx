@@ -83,7 +83,7 @@ export default function EditAttendanceModal({ close }) {
     dispatch(updateAttendance({ id: selectedId, type, attendance: record }));
 
     // ✅ Show success popup and auto-close modal
-    showPopup("success", "✅ Attendance updated successfully!");
+    showPopup("success", " Attendance updated successfully!");
     setTimeout(close, 2000);
   };
 
