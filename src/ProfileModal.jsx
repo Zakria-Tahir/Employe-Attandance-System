@@ -128,7 +128,7 @@ export default function ProfileModal({ close }) {
           <input type="hidden" name="employeeId" value={profile.employeeId} />
 
           <div className="modal-actions">
-            <button type="submit" className="primary-btn">
+            <button type="submit" className="primary-btn4">
               Save
             </button>
             <button type="button" className="cancel-btn" onClick={close}>
