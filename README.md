@@ -1,13 +1,17 @@
 ## 🖥️ Screenshots
 
+### 🔐 Login Page
+![Login Page](https://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/login.PNG?raw=true)
+
 ### 🏢 Admin Dashboard
-![Login Page](https://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/admin.PNG?raw=true)
+![Admin Dashboard](https://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/admin.PNG?raw=true)
 
 ### ⏱️ Employe Record
-![Admin Dashboard](https://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/employe.PNG?raw=true)
+![Employe Records](https://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/employe.PNG?raw=true)
 
-### 🔐 Login Page
-![Employe Record](https://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/login.PNG?raw=true)
+### ⏱️ Attandance_Record
+![Attandance Page](https://github.com/Zakria-Tahir/Employe-Attandance-System/blob/main/src/assets/attendance-records.PNG?raw=true)
+
 
 
 # 🕒 Employee Attendance System
