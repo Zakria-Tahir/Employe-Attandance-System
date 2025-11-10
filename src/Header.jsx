@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import ProfileModal from "./ProfileModal.jsx";
+import ReviewModal from "./ReviewModal.jsx"; // ✅ new import
 import "./Components/Header.css";
 
 export default function Header({ user, onLogout, onChangePwd }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  const [showReview, setShowReview] = useState(false); // ✅ new state
 
   return (
     <header className="emp-header">
@@ -20,6 +22,12 @@ export default function Header({ user, onLogout, onChangePwd }) {
         <button className="profile-btn" onClick={() => setShowProfile(true)}>
           Profile
         </button>
+
+        {/* ✅ New Reviews Button */}
+        <button className="review-btn" onClick={() => setShowReview(true)}>
+          Reviews
+        </button>
+
         <button className="change-pwd-btn" onClick={onChangePwd}>
           Change Password
         </button>
@@ -39,6 +47,9 @@ export default function Header({ user, onLogout, onChangePwd }) {
 
       {/* Profile Modal */}
       {showProfile && <ProfileModal close={() => setShowProfile(false)} />}
+
+      {/* ✅ Review Modal */}
+      {showReview && <ReviewModal close={() => setShowReview(false)} user={user} />}
     </header>
   );
 }

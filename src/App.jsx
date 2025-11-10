@@ -1,14 +1,22 @@
 // src/App.jsx
-import React from "react";
+import React, { useEffect } from "react";
+import { requestPermission } from "./firebase";
 import { Routes, Route, Navigate } from "react-router-dom";
 import LoginForm from "./LoginForm.jsx";
 import AdminDashboard from "./AdminDashboard.jsx";
 import EmployeeDashboard from "./EmployeeDashboard.jsx";
 import ProtectedRoute from "./ProtectedRoute.jsx";
 import AttendanceRecord from "./AttendanceRecord.jsx";
+import ReviewPage from "./ReviewPage.jsx";
 
 
 export default function App() {
+
+   useEffect(() => {
+    requestPermission();
+  }, []);
+
+
   return (
     <Routes>
       {/* Set login as the default route */}
@@ -22,6 +30,7 @@ export default function App() {
       {/* Admin-only route */}
       <Route element={<ProtectedRoute adminOnly={true} />}>
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/reviews" element={<ReviewPage />} />
        
       </Route>
 

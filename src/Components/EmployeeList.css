@@ -95,3 +95,32 @@
   border-radius: 6px;
   cursor: pointer;
 }
+
+.popup-message1 {
+  position: absolute;
+  top: 310px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  animation: fadeInOut 2s ease-in-out;
+  z-index: 10;
+}
+
+.popup-message1.success {
+  background-color: #f44336!important;
+  color: white;
+}
+
+.popup-message1.error {
+  background-color: #f44336;
+  color: white;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, -10px); }
+  10% { opacity: 1; transform: translate(-50%, 0); }
+  90% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, -10px); }
+}

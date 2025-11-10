@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Components/ProfileModal.css";
+import { getDatabase, ref, push } from "firebase/database";
+import { app } from "./firebase"; // ✅ import firebase instance
 
 export default function ProfileModal({ close }) {
-  const currentUser = JSON.parse(localStorage.getItem("auth_user")); // logged-in user
+  const currentUser = JSON.parse(localStorage.getItem("auth_user"));
   const employees = JSON.parse(localStorage.getItem("employees")) || [];
 
   const employee = employees.find(
     (emp) => String(emp.id) === String(currentUser?.id)
   );
 
-  // Load all profiles
   const allProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
 
-  // Check if a profile already exists for this employee
   const existingProfile = allProfiles.find(
     (p) => String(p.employeeId) === String(currentUser?.id)
   );
@@ -29,14 +29,14 @@ export default function ProfileModal({ close }) {
     }
   );
 
-  const [showMessage, setShowMessage] = useState(false); // ✅ for popup message
+  const [showMessage, setShowMessage] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProfile((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSave = (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
 
     const updatedProfiles = [...allProfiles];
@@ -45,26 +45,43 @@ export default function ProfileModal({ close }) {
     );
 
     if (index !== -1) {
-      updatedProfiles[index] = profile; // update existing
+      updatedProfiles[index] = profile;
     } else {
-      updatedProfiles.push(profile); // add new
+      updatedProfiles.push(profile);
     }
 
     localStorage.setItem("profiles", JSON.stringify(updatedProfiles));
 
     // ✅ Show popup message
     setShowMessage(true);
+
+    // ✅ Save popup info to Firebase
+    try {
+      const db = getDatabase(app);
+      await push(ref(db, "profile_update_logs"), {
+        employeeEmail: profile.email,
+        message: "Profile saved successfully!",
+        date: new Date().toLocaleDateString(),
+        time: new Date().toLocaleTimeString(),
+      });
+      console.log("✅ Popup message stored in Firebase");
+    } catch (error) {
+      console.error("❌ Error saving popup message to Firebase:", error);
+    }
+
     setTimeout(() => {
       setShowMessage(false);
-      close(); // auto close after showing success
-    }, 2000);
+      close();
+    }, 1500);
   };
 
   return (
     <div className="modal-overlay">
       <div className="profile-modal">
         {/* ✅ Success popup message */}
-        {showMessage && <div className="success-popup"> Profile saved successfully!</div>}
+        {showMessage && (
+          <div className="success-popup">Profile saved successfully!</div>
+        )}
 
         <h3>👤 Employee Profile</h3>
 
@@ -122,8 +139,6 @@ export default function ProfileModal({ close }) {
               placeholder="Securitic.ai"
             />
           </label>
-
-          <input type="hidden" name="employeeId" value={profile.employeeId} />
 
           <div className="modal-actions">
             <button type="submit" className="primary-btn4">

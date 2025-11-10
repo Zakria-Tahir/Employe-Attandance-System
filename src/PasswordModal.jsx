@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { getDatabase, ref, push } from "firebase/database";
+import { app } from "./firebase"; // ✅ import your firebase.js file
 import "./Components/PasswordModal.css";
 
 export default function PasswordModal({ user, onClose }) {
@@ -12,7 +14,7 @@ export default function PasswordModal({ user, onClose }) {
     setTimeout(() => setPopup({ show: false, message: "", type: "" }), 2000);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     const employees = JSON.parse(localStorage.getItem("employees") || "[]");
     const index = employees.findIndex((e) => e.email === user.email);
 
@@ -22,14 +24,28 @@ export default function PasswordModal({ user, onClose }) {
     if (newPwd !== confirmPwd)
       return showMessage("⚠️ Passwords do not match.", "error");
 
+    // ✅ Update password locally
     employees[index].password = newPwd;
     localStorage.setItem("employees", JSON.stringify(employees));
+    showMessage("✅ Password updated successfully!", "success");
 
-    showMessage(" Password updated successfully!", "success");
+    // ✅ Store popup message in Firebase
+    try {
+      const db = getDatabase(app);
+      const logRef = ref(db, "password_update_logs");
+      await push(logRef, {
+        employeeEmail: user.email,
+        message: "Password updated successfully!",
+        timestamp: new Date().toISOString(),
+      });
+      console.log("✅ Log stored in Firebase");
+    } catch (error) {
+      console.error("❌ Error saving log:", error);
+    }
 
     setTimeout(() => {
       onClose();
-    }, 2000);
+    }, 1500);
   };
 
   return (
@@ -37,9 +53,7 @@ export default function PasswordModal({ user, onClose }) {
       <div className="modal-box password-modal">
         {/* ✅ Popup message */}
         {popup.show && (
-          <div className={`popup-message ${popup.type}`}>
-            {popup.message}
-          </div>
+          <div className={`popup-message ${popup.type}`}>{popup.message}</div>
         )}
 
         <h3>🔒 Change Password</h3>

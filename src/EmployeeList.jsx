@@ -3,25 +3,59 @@ import { useSelector, useDispatch } from "react-redux";
 import { deleteEmployee } from "./features/employeeSlice.jsx";
 import "./Components/EmployeeList.css";
 
+// ✅ Import Firebase
+import { db } from "./firebase";
+import { ref, push } from "firebase/database";
+
 export default function EmployeeList() {
   const employees = useSelector((s) => s.employees.list);
   const dispatch = useDispatch();
 
   const [profiles, setProfiles] = useState([]);
   const [confirmDelete, setConfirmDelete] = useState(null);
+  const [popup, setPopup] = useState({ type: "", message: "" });
 
   // ✅ Load profiles from localStorage
   useEffect(() => {
     const storedProfiles = JSON.parse(localStorage.getItem("profiles")) || [];
     setProfiles(storedProfiles);
-  }, [employees]); // re-check when employees change
+  }, [employees]);
+
+  // ✅ Firebase log function
+  const logToFirebase = async (employeeName, message) => {
+    try {
+      const admin = JSON.parse(localStorage.getItem("auth_user")) || {};
+      const logRef = ref(db, "adminActions"); // Firebase path
+      const logData = {
+        adminEmail: admin.email || "Unknown Admin",
+        employeeName: employeeName || "Unknown Employee",
+        action: "Delete Employee",
+        message,
+        timestamp: new Date().toISOString(),
+        date: new Date().toLocaleDateString(),
+        time: new Date().toLocaleTimeString(),
+      };
+      await push(logRef, logData);
+      console.log("✅ Log saved in Firebase:", logData);
+    } catch (error) {
+      console.error("❌ Error saving to Firebase:", error);
+    }
+  };
+
+  const showPopup = (type, message, duration = 2000) => {
+    setPopup({ type, message });
+    setTimeout(() => setPopup({ type: "", message: "" }), duration);
+  };
 
   const handleConfirm = (id) => {
     setConfirmDelete(id);
   };
 
-  const handleDelete = () => {
+  const handleDelete = async () => {
     if (confirmDelete !== null) {
+      const employeeToDelete = employees.find((e) => e.id === confirmDelete);
+      const employeeName = employeeToDelete?.name || "Unknown";
+
       dispatch(deleteEmployee(confirmDelete));
 
       // ✅ Remove profile for that employee also
@@ -31,6 +65,12 @@ export default function EmployeeList() {
       setProfiles(updatedProfiles);
       localStorage.setItem("profiles", JSON.stringify(updatedProfiles));
 
+      // ✅ Firebase log + popup
+      const message = `🗑️ Employee "${employeeName}" deleted successfully!`;
+      showPopup("success", message);
+      await logToFirebase(employeeName, message);
+
+      // ✅ Close confirmation modal
       setConfirmDelete(null);
     }
   };
@@ -108,6 +148,17 @@ export default function EmployeeList() {
               </button>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* ✅ Popup Message */}
+      {popup.message && (
+        <div
+          className={`popup-message1 ${
+            popup.type === "success" ? "success-popup" : "error-popup"
+          }`}
+        >
+          {popup.message}
         </div>
       )}
     </div>

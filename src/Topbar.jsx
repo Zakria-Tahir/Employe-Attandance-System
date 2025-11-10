@@ -32,6 +32,12 @@ export default function Topbar() {
 
         <div className={`logout-container ${menuOpen ? "open" : ""}`}>
           <span className="admin-name">{user?.name || ""}</span>
+
+          {/* ✅ See Reviews Button */}
+          <button className="review-btn" onClick={() => navigate("/reviews")}>
+            See Reviews
+          </button>
+
           <button className="logout-btn" onClick={handleLogout}>
             Logout
           </button>

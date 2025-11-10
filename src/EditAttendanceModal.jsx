@@ -4,6 +4,10 @@ import { updateAttendance } from "./features/employeeSlice.jsx";
 import "./Components/Dashboard.css";
 import "./Components/admindashing.css";
 
+// ✅ Firebase imports
+import { db } from "./firebase";
+import { ref, push } from "firebase/database";
+
 export default function EditAttendanceModal({ close }) {
   const employees = useSelector((s) => s.employees.list || []);
   const dispatch = useDispatch();
@@ -13,12 +17,33 @@ export default function EditAttendanceModal({ close }) {
   const [attendance, setAttendance] = useState({ date: "", time: "" });
   const [popup, setPopup] = useState({ type: "", message: "" }); // ✅ Popup state
 
+  // ✅ Popup helper
   const showPopup = (type, message, duration = 2000) => {
     setPopup({ type, message });
     setTimeout(() => setPopup({ type: "", message: "" }), duration);
   };
 
-  const handleSubmit = (e) => {
+  // ✅ Firebase log function
+  const logToFirebase = async (employeeName, message) => {
+    try {
+      const admin = JSON.parse(localStorage.getItem("auth_user")) || {};
+      const logRef = ref(db, "attendanceLogs");
+      const logData = {
+        adminEmail: admin.email || "Unknown Admin",
+        employeeName: employeeName || "Unknown Employee",
+        message,
+        timestamp: new Date().toISOString(),
+        date: new Date().toLocaleDateString(),
+        time: new Date().toLocaleTimeString(),
+      };
+      await push(logRef, logData);
+      console.log("✅ Attendance log saved in Firebase:", logData);
+    } catch (err) {
+      console.error("❌ Firebase log error:", err);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!selectedId || !attendance.date || !attendance.time) return;
 
@@ -38,7 +63,6 @@ export default function EditAttendanceModal({ close }) {
         new Date(attendance.date).toDateString()
     );
 
-    // ⚠️ Show popup if no record found
     if (recordIndex === -1)
       return showPopup("error", "⚠️ No attendance record found!");
 
@@ -82,9 +106,12 @@ export default function EditAttendanceModal({ close }) {
 
     dispatch(updateAttendance({ id: selectedId, type, attendance: record }));
 
-    // ✅ Show success popup and auto-close modal
-    showPopup("success", " Attendance updated successfully!");
-    setTimeout(close, 2000);
+    // ✅ Popup + Firebase log
+    const message = `✅ Attendance updated successfully for ${employee.name}`;
+    showPopup("success", message);
+    await logToFirebase(employee.name, message);
+
+    setTimeout(close, 1500);
   };
 
   return (
@@ -141,11 +168,11 @@ export default function EditAttendanceModal({ close }) {
       {/* ✅ Popup message (Success or Error) */}
       {popup.message && (
         <div
-          className={`popup-message ${
+          className={`popup-messageb ${
             popup.type === "success" ? "success-popup" : "error-popup"
           }`}
         >
-          <div className="popup-box">{popup.message}</div>
+          <div className="popup-boxb">{popup.message}</div>
         </div>
       )}
     </div>

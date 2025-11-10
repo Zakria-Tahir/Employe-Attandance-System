@@ -135,7 +135,7 @@
   }
 }
 
-.popup-message {
+.popup-messageb {
   position: fixed;
   top: 30%;
   left: 50%;
@@ -144,7 +144,7 @@
   animation: fadeInOut 2s ease;
 }
 
-.popup-box {
+.popup-boxb {
   background: #3b80ff;
   padding: 15px 25px;
   border-radius: 12px;
@@ -152,12 +152,12 @@
   box-shadow: 0 5px 25px rgba(0,0,0,0.2);
 }
 
-.success-popup .popup-box {
+.success-popup .popup-boxb {
   border-left: 6px solid #0425dd;
   color: white;
 }
 
-.error-popup .popup-box {
+.error-popup .popup-boxb {
   border-left: 6px solid #dc3545;
   color: #dc3545;
 }

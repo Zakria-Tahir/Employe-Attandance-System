@@ -3,6 +3,10 @@ import { useDispatch } from "react-redux";
 import { addEmployee } from "./features/employeeSlice.jsx";
 import "./Components/Dashboard.css";
 
+// ✅ Import Firebase Realtime Database utilities
+import { db } from "./firebase";
+import { ref, push } from "firebase/database";
+
 export default function AddEmployeeModal({ close }) {
   const [form, setForm] = useState({
     name: "",
@@ -13,27 +17,53 @@ export default function AddEmployeeModal({ close }) {
   const [dialog, setDialog] = useState(null);
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  // ✅ Save message to Firebase
+  const saveToFirebase = async (message, type) => {
+    try {
+      const admin = JSON.parse(localStorage.getItem("auth_user")) || {};
+      const logRef = ref(db, "adminLogs"); // Firebase path: adminLogs/
+      const logData = {
+        adminEmail: admin.email || "Unknown",
+        message,
+        type,
+        timestamp: new Date().toISOString(),
+        date: new Date().toLocaleDateString(),
+        time: new Date().toLocaleTimeString(),
+      };
+      await push(logRef, logData);
+      console.log("✅ Log stored in Firebase:", logData);
+    } catch (error) {
+      console.error("❌ Error saving to Firebase:", error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const existingEmployees = JSON.parse(localStorage.getItem("employees")) || [];
+    const existingEmployees =
+      JSON.parse(localStorage.getItem("employees")) || [];
 
     const emailExists = existingEmployees.some(
       (emp) => emp.email.toLowerCase() === form.email.toLowerCase()
     );
 
     if (emailExists) {
-      setDialog({ type: "error", text: "❌ Email already exists!" });
+      const message = "❌ Email already exists!";
+      setDialog({ type: "error", text: message });
+      await saveToFirebase(message, "error");
       return;
     }
 
     const newEmp = { id: Date.now(), ...form, attendance: [] };
     dispatch(addEmployee(newEmp));
+    localStorage.setItem(
+      "employees",
+      JSON.stringify([...existingEmployees, newEmp])
+    );
 
-    localStorage.setItem("employees", JSON.stringify([...existingEmployees, newEmp]));
-
-    // ✅ Show success modal message
-    setDialog({ type: "success", text: "✅ Employee added successfully!" });
+    const message = "✅ Employee added successfully!";
+    setDialog({ type: "success", text: message });
+    await saveToFirebase(message, "success");
 
     // ✅ Auto close both dialogs
     setTimeout(() => {
@@ -55,13 +85,6 @@ export default function AddEmployeeModal({ close }) {
             >
               {dialog.text}
             </h3>
-           {/*} <button
-              onClick={() => setDialog(null)}
-              className="primary-btn"
-              style={{ marginTop: "10px" }}
-            >
-              OK
-            </button>*/}
           </div>
         </div>
       )}
@@ -98,7 +121,9 @@ export default function AddEmployeeModal({ close }) {
             />
 
             <div className="modal-actions">
-              <button type="submit" className="primary-btn">Add</button>
+              <button type="submit" className="primary-btn">
+                Add
+              </button>
               <button type="button" className="cancel-btn" onClick={close}>
                 Cancel
               </button>
